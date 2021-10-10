@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 만들기
 
-        //TODO : 아이콘 이미지 변경 하기
+        // 이미지 변경 하기
         actionBar.setHomeAsUpIndicator(R.drawable.back_icon);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
