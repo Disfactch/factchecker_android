@@ -1,5 +1,6 @@
 package org.androidtown.disfactch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,30 +30,32 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 만들기
 
-        // 이미지 변경 하기
+        //TODO : 아이콘 이미지 변경 하기
         actionBar.setHomeAsUpIndicator(R.drawable.back_icon);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        getSupportFragmentManager().beginTransaction().add(R.id.main_frame, new FactCheckingFragment()).commitAllowingStateLoss();
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-
             @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                mDrawerLayout.closeDrawers();
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
-                int id = menuItem.getItemId();
-                String title = menuItem.getTitle().toString();
+                switch (menuItem.getItemId()){
+                    case R.id.fact_checking:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new FactCheckingFragment()).commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
 
-                if(id == R.id.fact_checking){
-                    Toast.makeText(context, title + ": 팩트 체킹 화면으로 넘기기 ", Toast.LENGTH_SHORT).show();
-                }
-                else if(id == R.id.link){
-                    Toast.makeText(context, title + ": 링크 > 필요한가 ㅎ ", Toast.LENGTH_SHORT).show();
-                }
-                else if(id == R.id.setting){
-                    Toast.makeText(context, title + ": 설정 화면으로 넘기기 ", Toast.LENGTH_SHORT).show();
+                    case R.id.link:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new LinkFragment()).commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
+
+                    case R.id.setting:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new SettingFragment()).commit();
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
+                        return true;
                 }
                 return true;
             }
