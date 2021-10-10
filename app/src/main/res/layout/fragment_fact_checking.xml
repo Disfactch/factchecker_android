@@ -3,12 +3,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FactCheckingFragment">
 
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="factchecking fragment" />
+        android:layout_height="wrap_content">
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/cb_provocative"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progress_start_color="#FF1500"
+            app:progress_end_color="#1AFA02"
+            app:progress_stroke_cap="round"
+            app:progress_stroke_width="20dp "
+            app:progress_text_size="20sp"
+            app:style="solid_line" />
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/cb_publicity"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignLeft="@+id/cb_provocative"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="200dp"
+            app:progress_start_color="#FF1500"
+            app:progress_end_color="#1AFA02"
+            app:progress_stroke_cap="round"
+            app:progress_stroke_width="20dp "
+            app:progress_text_size="20sp"
+            app:style="solid_line" />
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/cb_same"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/cb_provocative"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
+            app:progress_start_color="#FF1500"
+            app:progress_end_color="#1AFA02"
+            app:progress_stroke_cap="round"
+            app:progress_stroke_width="20dp "
+            app:progress_text_size="20sp"
+            app:style="solid_line" />
+
+        <com.dinuscxj.progressbar.CircleProgressBar
+            android:id="@+id/cb_final"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignLeft="@+id/cb_same"
+            android:layout_below="@+id/cb_publicity"
+            android:layout_marginLeft="132dp"
+            android:layout_marginTop="50dp"
+            app:progress_start_color="#FF1500"
+            app:progress_end_color="#1AFA02"
+            app:progress_stroke_cap="round"
+            app:progress_stroke_width="20dp "
+            app:progress_text_size="20sp"
+            app:style="solid_line" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="factchecking fragment" />
+
+    </RelativeLayout>
+
 
 </FrameLayout>
