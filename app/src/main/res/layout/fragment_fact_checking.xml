@@ -39,6 +39,7 @@
 
         <EditText
             android:id="@+id/rl_search_edit"
+            android:maxLines="1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
@@ -48,11 +49,21 @@
             android:id="@+id/rl_search_btn"
             android:text="검색"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="260dp" />
+
+        <Button
+            android:id="@+id/rl_search_read_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/rl_search_btn"
+            android:layout_marginLeft="260dp"
+            android:layout_marginBottom="-35dp"
+            android:text="보기" />
 
     </RelativeLayout>
 
+    <!-- TODO : -->
     <RelativeLayout
         android:id="@+id/rl_progress"
         android:layout_width="wrap_content"
