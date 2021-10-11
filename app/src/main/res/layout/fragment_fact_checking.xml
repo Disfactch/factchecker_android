@@ -3,20 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="30dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FactCheckingFragment">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:id="@+id/rl_fc"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fact Checking Service"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:id="@+id/rl_fc_txt" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp">
+
+        <TextView
+            android:id="@+id/rl_search_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/rl_search_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:hint="링크를 입력하세요"/>
+
+        <Button
+            android:id="@+id/rl_search_btn"
+            android:text="검색"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp">
 
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_provocative"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginLeft="80dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,8 +79,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_alignLeft="@+id/cb_provocative"
-            android:layout_marginLeft="132dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginLeft="130dp"
             app:progress_start_color="#FF1500"
             app:progress_end_color="#1AFA02"
             app:progress_stroke_cap="round"
@@ -47,7 +92,6 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/cb_provocative"
-            android:layout_marginLeft="80dp"
             android:layout_marginTop="50dp"
             app:progress_start_color="#FF1500"
             app:progress_end_color="#1AFA02"
@@ -70,11 +114,6 @@
             app:progress_stroke_width="20dp "
             app:progress_text_size="20sp"
             app:style="solid_line" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="factchecking fragment" />
 
     </RelativeLayout>
 
