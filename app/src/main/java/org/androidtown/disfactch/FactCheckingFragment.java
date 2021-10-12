@@ -51,6 +51,8 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        //https://lcw126.tistory.com/284
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
         cb_prov= v.findViewById(R.id.cb_provocative);
         cb_prov.setProgress(70);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
