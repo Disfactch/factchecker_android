@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,33 +8,35 @@
     tools:context=".SettingFragment">
 
     <!-- TODO : fragment 내용물 채우기 ex. darkmode 설정 등등 -->
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <Button
+            android:id="@+id/button_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_1"
+            app:backgroundTint="@color/main_blue" />
 
-    <Button
-        android:id="@+id/button_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:backgroundTint="@color/main_blue" />
+        <Button
+            android:id="@+id/button_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_2"
+            app:backgroundTint="@color/main_blue" />
 
-    <Button
-        android:id="@+id/button_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:backgroundTint="@color/main_blue" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_3"
+            app:backgroundTint="@color/main_blue" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:backgroundTint="@color/main_blue" />
-
-    <Button
-        android:id="@+id/button_darkmode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="다크모드 설정"
-        app:backgroundTint="@color/main_blue" />
-
-</LinearLayout>
+        <Button
+            android:id="@+id/button_darkmode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_darkmode"
+            app:backgroundTint="@color/main_blue" />
+    </LinearLayout>
+</RelativeLayout>

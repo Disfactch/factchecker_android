@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false); // 기존 title 지우기
         actionBar.setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼 만들기
 
-        // TODO : button_darkmode 선택시 라디오버튼 Popup
-
 
 /*
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -99,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 /*
