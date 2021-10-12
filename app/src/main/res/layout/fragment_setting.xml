@@ -1,14 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SettingFragment">
 
     <!-- TODO : fragment 내용물 채우기 ex. darkmode 설정 등등 -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="setting fragment" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:backgroundTint="@color/main_blue" />
+
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:backgroundTint="@color/main_blue" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:backgroundTint="@color/main_blue" />
+
+    <Button
+        android:id="@+id/button_darkmode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다크모드 설정"
+        app:backgroundTint="@color/main_blue" />
+
+</LinearLayout>
