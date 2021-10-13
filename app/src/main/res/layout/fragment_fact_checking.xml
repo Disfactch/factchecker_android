@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="30dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FactCheckingFragment">
+    tools:context=".FactCheckingFragment"
+    android:id='@+id/fc'>
 
 
     <RelativeLayout
@@ -127,6 +128,5 @@
             app:style="solid_line" />
 
     </RelativeLayout>
-
 
 </FrameLayout>
