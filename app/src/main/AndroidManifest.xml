@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.androidtown.disfactch">
 
     <!--queries에 카카오톡 패키지 추가-->
@@ -17,7 +18,6 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Disfactch">
-        <activity android:name=".MainActivity" />
 
         <activity
             android:name=".SplashActivity"
@@ -29,6 +29,18 @@
 
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:configChanges="orientation"
+            android:theme="@style/Theme.Disfactch.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".FactCheckingFragment"
+            android:configChanges="uiMode"
+            tools:ignore="Instantiatable" />
 
     </application>
 

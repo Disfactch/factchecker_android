@@ -88,14 +88,17 @@ public class SettingFragment extends Fragment {
             }
         });
 
+
         sw_dark = (Switch)v.findViewById(R.id.sw);
 
         sw_dark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
+        //TODO: 여기서 onConfigurationChanged 메서드를 써야할 것 같은데
             @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 
                 if(isChecked){
                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
                 }else{
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
