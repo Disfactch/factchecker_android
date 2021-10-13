@@ -15,7 +15,10 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
+import com.kakao.sdk.template.model.FeedTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
 
 public class FactCheckingFragment extends Fragment implements CircleProgressBar.ProgressFormatter {
 
@@ -33,7 +36,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     CircleProgressBar cb_sa; // 동일 기사
     CircleProgressBar cb_fi; // 최종 신뢰도
 
-
+/*
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -46,7 +49,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         super.onDetach();
         mainActivity = null;
     }
-
+*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
