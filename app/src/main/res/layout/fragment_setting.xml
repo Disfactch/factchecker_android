@@ -11,11 +11,21 @@
     <LinearLayout android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Setting"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+
+
+        <!-- TODO : 버튼 이름 변경 필요 > settingFragment.java도 변경 -->
         <Button
-            android:id="@+id/button_1"
+            android:id="@+id/btn_github"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_1"
+            android:text="@string/btn_git"
             app:backgroundTint="@color/main_blue" />
 
         <Button
@@ -38,5 +48,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_darkmode"
             app:backgroundTint="@color/main_blue" />
+
+
     </LinearLayout>
 </RelativeLayout>

@@ -46,9 +46,6 @@ public class BrowseFragment extends Fragment {
         webView = v.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
 
-        System.out.println("=======================");
-        System.out.println(str);
-
         webView.setWebViewClient(new WebViewClient()); // 클릭시 새창 안뜨게
         webSettings = webView.getSettings(); //세부 세팅 등록
         webSettings.setJavaScriptEnabled(true); // 웹페이지 자바스클비트 허용 여부
