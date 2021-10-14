@@ -29,12 +29,12 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     BrowseFragment web;
 
 
-
     EditText link;
     CircleProgressBar cb_prov;// 자극성 기사 progress bar
     CircleProgressBar cb_pub; // 홍보성 기사
     CircleProgressBar cb_sa; // 동일 기사
     CircleProgressBar cb_fi; // 최종 신뢰도
+
 
 /*
     @Override

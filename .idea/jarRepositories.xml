@@ -41,5 +41,15 @@
       <option name="name" value="maven" />
       <option name="url" value="http://devrepo.kakao.com:8088/nexus/content/groups/public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="file:/$PROJECT_DIR$/repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="file:/$PROJECT_DIR$/app/repo1.maven.org/maven2" />
+    </remote-repository>
   </component>
 </project>
