@@ -20,4 +20,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.474" />
 
+    <!-- 카카오톡 로그인 버튼 -->
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/loginButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"></com.kakao.usermgmt.LoginButton>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="221dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="95dp"
+        android:text="로그인 없이 시작하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/road_splash" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
