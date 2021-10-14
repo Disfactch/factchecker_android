@@ -5,4 +5,5 @@
     <string name="button_2">setting 버튼2</string>
     <string name="button_3">setting 버튼3</string>
     <string name="button_darkmode">다크모드 설정</string>
+    <string name="kakao_app_key">785eafb7631beeb2174384ab75d1e3b1</string>
 </resources>

@@ -1,7 +1,14 @@
 package org.androidtown.disfactch;
 
 import android.content.Context;
+
 import android.os.Bundle;
+import android.content.Intent;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FactCheckingFragment extends Fragment implements CircleProgressBar.ProgressFormatter {
+
 
     private static final String DEFAULT_PATTERN = "%d%%";
 
@@ -50,10 +58,12 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         mainActivity = null;
     }
 */
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
 
         //https://lcw126.tistory.com/284
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
@@ -102,6 +112,10 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
             }
         });
 
+
+
+
+
         return v;
     }
 
@@ -109,4 +123,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     public CharSequence format(int progress, int max) {
         return String.format(DEFAULT_PATTERN, (int) ((float) progress / (float) max * 100));
     }
+
+
+
 }

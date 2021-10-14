@@ -59,7 +59,7 @@ public class SettingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        //TODO: 버튼 이름 기능에 따라 변경 필요 _ button1 이런건 나중에 뭔지 헷갈릴 것 같아요
+        //TODO: 버튼 이름 기능에 따라 변경 필요
         btn_github = (Button) v.findViewById(R.id.btn_github);
         button_2 = (Button) v.findViewById(R.id.button_2);
 
@@ -93,7 +93,7 @@ public class SettingFragment extends Fragment {
 
         sw_dark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        //TODO: 여기서 onConfigurationChanged 메서드를 써야할 것 같은데
+        //TODO: 여기서 onConfigurationChanged 메서드 사용해야함
             @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 
                 if(isChecked){

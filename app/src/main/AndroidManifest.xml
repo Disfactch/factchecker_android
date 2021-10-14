@@ -19,6 +19,12 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Disfactch">
 
+        <!--카카오톡-->
+        <meta-data
+            android:name="com.kakao.sdk.Appkey"
+            android:value="@string/kakao_app_key" />
+
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.Disfactch.NoActionBar">
@@ -41,6 +47,7 @@
             android:name=".FactCheckingFragment"
             android:configChanges="uiMode"
             tools:ignore="Instantiatable" />
+
 
     </application>
 
