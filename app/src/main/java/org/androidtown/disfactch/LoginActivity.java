@@ -28,33 +28,33 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, (oAuthToken, error) -> {
                     if (error != null) {
-                                                     Log.e(TAG, "로그인 실패", error);
+                        Log.e(TAG, "로그인 실패", error);
 
-                                                     //로그인 실패 하더라도 넘어가게는 해놨음 > just 확인용
-                                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                                     startActivity(intent);
+                        //로그인 실패 하더라도 넘어가게는 해놨음 > just 확인용
+                        //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        //startActivity(intent);
 
-                                                 } else if (oAuthToken != null) {
+                    } else if (oAuthToken != null) {
                         Log.i(TAG, "로그인 성공(토큰) : " + oAuthToken.getAccessToken());
 
                         UserApiClient.getInstance().me((user, meError) -> {
-                                                         if (meError != null) {
+                            if (meError != null) {
                                                              Log.e(TAG, "사용자 정보 요청 실패", meError);
                                                          } else {
-                                                             System.out.println("로그인 완료");
-                                                             //로그인 성공시 main으로 넘어감
-                                                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                                             startActivity(intent);
+                                System.out.println("로그인 완료");
+                                //로그인 성공시 main으로 넘어감
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
 
-                                                             Log.i(TAG, user.toString());
-                                                             {
-                                                                 Log.i(TAG, "사용자 정보 요청 성공" +
-                                                                         "\n회원번호: " + user.getId() +
-                                                                         "\n이메일: " + user.getKakaoAccount().getEmail());
-                                                             }
-                                                         }
-                                                         return null;
-                                                     });
+                                Log.i(TAG, user.toString());
+                                {
+                                    Log.i(TAG, "사용자 정보 요청 성공" +
+                                            "\n회원번호: " + user.getId() +
+                                            "\n이메일: " + user.getKakaoAccount().getEmail());
+                                }
+                            }
+                            return null;
+                        });
 
                     }
                     return null;
