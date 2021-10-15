@@ -93,23 +93,25 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         progress = v.findViewById(R.id.rl_progress);
         progress.setVisibility(View.INVISIBLE);
 
+        link = v.findViewById(R.id.rl_search_edit);
+
+
         Button rl_btn = (Button)v.findViewById(R.id.rl_search_btn);
         Button rl_read_btn = (Button)v.findViewById(R.id.rl_search_read_btn);
 
         rl_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                url = link.getText().toString();
+
                 progress.setVisibility(View.VISIBLE);
             }
         });
 
-        link = v.findViewById(R.id.rl_search_edit);
+
         rl_read_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 Bundle bundle = new Bundle(); // 번들을 통해 값 전달
                 bundle.putString("link",link.getText().toString());//번들에 넘길 값 저장
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
@@ -123,9 +125,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         });
 
         //TODO: 위에서 작성한 link가 string 형식으로 넘어오질 않음
-        url = link.getText().toString();
-        System.out.println(url);
-        System.out.println("===============");
+
         kakao_msg = (Button)v.findViewById(R.id.btn_link);
         kakao_msg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,12 +138,13 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                // FeedTemplate feedTemplate = new FeedTemplate(new Content("title","imageUrl",    //메시지 제목, 이미지 url
                         //new Link("https://www.naver.com"),"description",                    //메시지 링크, 메시지 설명
                        // 300,300));                                                     //이미지 사이즈
+                //url = "\""+url+"\"";
 
-                //TODO: url 넘겨 받는 부분 오류 해결하기
-                TextTemplate textTemplate = new TextTemplate("네이버 링크로 가요 ~" ,new Link("https://www.naver.com","https://www.naver.com"));
-
-                // line 70dml textTemplate을 feedTemplate으로 바꾸면 feed 형식으로 전송 될 것으로 보임.
-                // 일단 feed로 검사해봐야겠음.
+                /**
+                 * 연합 , 네이버, 다음, 중앙, 동아, 경향, 국민, 뉴스1, 뉴시스, 문화 이렇게 10개 회사만 가능.
+                 */
+                //url 넘겨 받는거 : 검색 버튼 눌러야지만 공유 가능.
+                TextTemplate textTemplate = new TextTemplate("기사를 확인해보세요 !~" ,new Link(url,url));
                 LinkClient.getInstance().defaultTemplate(view.getContext(), textTemplate,null,new Function2<LinkResult, Throwable, Unit>() {
                     @Override
                     public Unit invoke(LinkResult linkResult, Throwable throwable) {
@@ -154,7 +155,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                             view.getContext().startActivity(linkResult.getIntent());
 
                             // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.
-                            Log.w("TAG", "==============================================");
                             Log.w("TAG", "Warning Msg: "+ linkResult.getWarningMsg());
                             Log.w("TAG", "Argument Msg: "+ linkResult.getArgumentMsg());
                         }
@@ -163,8 +163,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                 });
             }
         });
-
-
 
         return v;
     }
