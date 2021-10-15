@@ -6,5 +6,11 @@
     tools:context=".LinkFragment">
 
 
+    <Button
+        android:id="@+id/btn_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="링크 보내기"
+        android:background="@color/main_blue" />
 
 </FrameLayout>
