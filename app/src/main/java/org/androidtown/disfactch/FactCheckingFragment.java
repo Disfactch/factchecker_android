@@ -62,8 +62,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
 
         //https://lcw126.tistory.com/284
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
@@ -106,16 +104,8 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                 web.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
                 transaction.replace(R.id.main_frame, web);
                 transaction.commit();
-
-                //mainActivity.fragmentChange(1);
-
             }
         });
-
-
-
-
-
         return v;
     }
 
@@ -123,7 +113,5 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     public CharSequence format(int progress, int max) {
         return String.format(DEFAULT_PATTERN, (int) ((float) progress / (float) max * 100));
     }
-
-
 
 }

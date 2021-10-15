@@ -3,26 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.androidtown.disfactch">
 
-    <!--queries에 카카오톡 패키지 추가-->
-    <queries>
-        <package android:name="com.kakao.talk" />
-    </queries>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Disfactch">
+        android:theme="@style/Theme.Disfactch"
+        android:usesCleartextTraffic="true">
 
-        <!--카카오톡-->
+        <activity android:name=".LoginActivity"></activity>
+
+        <!-- 카카오톡 -->
         <meta-data
             android:name="com.kakao.sdk.Appkey"
             android:value="@string/kakao_app_key" />
+
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="@string/kakao_app_key" />
+            </intent-filter>
+        </activity>
 
 
         <activity
@@ -32,23 +44,18 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
 
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
             android:configChanges="orientation"
-            android:theme="@style/Theme.Disfactch.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.Disfactch.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <activity
             android:name=".FactCheckingFragment"
             android:configChanges="uiMode"
             tools:ignore="Instantiatable" />
-
-
     </application>
 
 </manifest>
