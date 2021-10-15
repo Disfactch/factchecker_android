@@ -41,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.e(TAG, "사용자 정보 요청 실패", meError);
                             } else {
                                 System.out.println("로그인 완료");
-
                                 //로그인 성공시 main으로 넘어감
                                 Intent intent = new Intent (getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
