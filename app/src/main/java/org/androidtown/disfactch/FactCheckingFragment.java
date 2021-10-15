@@ -108,12 +108,16 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
             @Override
             public void onClick(View view) {
 
+
+
                 Bundle bundle = new Bundle(); // 번들을 통해 값 전달
                 bundle.putString("link",link.getText().toString());//번들에 넘길 값 저장
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 web = new BrowseFragment();//프래그먼트2 선언
                 web.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
                 transaction.replace(R.id.main_frame, web);
+                // 뒤로 가기 누르면 전 화면으로 돌려줌.
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
@@ -131,12 +135,12 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                  * new Link() : 파라미터 순서대로 webLink, mobileLink, androidLink, iosLink
                  * https://www.beemo.co.kr/entry/카카오-sdk-v2-굳이-자바로-사용하기-2-카카오-링크-메시지?category=743783
                  */
-                //FeedTemplate feedTemplate = new FeedTemplate(new Content("title","imageUrl",    //메시지 제목, 이미지 url
-                        //new Link(url),"description",                    //메시지 링크, 메시지 설명
-                        //300,300));                                                     //이미지 사이즈
+               // FeedTemplate feedTemplate = new FeedTemplate(new Content("title","imageUrl",    //메시지 제목, 이미지 url
+                        //new Link("https://www.naver.com"),"description",                    //메시지 링크, 메시지 설명
+                       // 300,300));                                                     //이미지 사이즈
 
                 //TODO: url 넘겨 받는 부분 오류 해결하기
-                TextTemplate textTemplate = new TextTemplate("네이버 링크로 가요 ~" ,new Link("https://www.naver.com"));
+                TextTemplate textTemplate = new TextTemplate("네이버 링크로 가요 ~" ,new Link("https://www.naver.com","https://www.naver.com"));
 
                 // line 70dml textTemplate을 feedTemplate으로 바꾸면 feed 형식으로 전송 될 것으로 보임.
                 // 일단 feed로 검사해봐야겠음.
@@ -150,6 +154,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                             view.getContext().startActivity(linkResult.getIntent());
 
                             // 카카오링크 보내기에 성공했지만 아래 경고 메시지가 존재할 경우 일부 컨텐츠가 정상 동작하지 않을 수 있습니다.
+                            Log.w("TAG", "==============================================");
                             Log.w("TAG", "Warning Msg: "+ linkResult.getWarningMsg());
                             Log.w("TAG", "Argument Msg: "+ linkResult.getArgumentMsg());
                         }

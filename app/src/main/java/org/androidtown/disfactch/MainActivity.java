@@ -79,4 +79,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+   /*
+    public interface onKeyBackPressedListener {
+        void onBackKey();
+    }
+    private onKeyBackPressedListener mOnKeyBackPressedListener;
+    public void setOnKeyBackPressedListener(onKeyBackPressedListener listener) {
+        mOnKeyBackPressedListener = listener;
+    } //메인에서 토스트를 띄우며 종료확인을 하기 위해 필드선언
+
+    @Override public void onBackPressed() {
+        if (mOnKeyBackPressedListener != null) {
+            mOnKeyBackPressedListener.onBackKey();
+        } else {
+            //쌓인 BackStack 여부에 따라 Toast를 띄울지, 뒤로갈지
+            if(getSupportFragmentManager().getBackStackEntryCount()==0){
+                //* 종료 EndToast Bean 사용
+
+            }else{
+                super.onBackPressed();
+            }
+        }
+    }
+    */
+
+
 }
+
