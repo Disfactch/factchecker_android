@@ -37,7 +37,6 @@ public class LinkFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragments
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_link, container, false);
 
         return v;

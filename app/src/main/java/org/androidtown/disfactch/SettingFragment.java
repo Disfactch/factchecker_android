@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import org.androidtown.disfactch.R;
@@ -54,6 +55,8 @@ public class SettingFragment extends Fragment {
 
     BrowseFragment web;
 
+    View view = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -64,11 +67,11 @@ public class SettingFragment extends Fragment {
         button_2 = (Button) v.findViewById(R.id.button_2);
 
         //btn_github: disfactch github를 webview 방식으로 앱 내에서 보여줌
-        btn_github.setOnClickListener(new View.OnClickListener(){
+        btn_github.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Bundle bundle = new Bundle(); // 번들을 통해 값 전달
-                bundle.putString("link","https://github.com/Disfactch");//번들에 넘길 값 저장
+                bundle.putString("link", "https://github.com/Disfactch");//번들에 넘길 값 저장
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 web = new BrowseFragment();//프래그먼트2 선언
                 web.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
@@ -79,25 +82,24 @@ public class SettingFragment extends Fragment {
 
 
         //button_2 기능: 임시로 전화기능 설정
-        button_2.setOnClickListener(new View.OnClickListener(){
+        button_2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("tel:010"));
                 startActivity(intent);
             }
         });
 
-
-        sw_dark = (Switch)v.findViewById(R.id.sw);
+        sw_dark = (Switch) v. findViewById(R.id.sw);
 
         sw_dark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-        //TODO: 여기서 onConfigurationChanged 메서드 사용해야함
+            //TODO: 여기서 onConfigurationChanged 메서드 사용해야함
             @Override public void onCheckedChanged(CompoundButton buttonView, boolean isChecked){
 
                 if(isChecked){
-                   AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
                 }else{
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -106,8 +108,14 @@ public class SettingFragment extends Fragment {
         });
 
         return v;
+    }
 
-
+    //TODO: onConfiguratioonChanged 방법 찾기.
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        LayoutInflater inflater2 = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater2.inflate(R.layout.fragment_setting, null);
 
     }
 
