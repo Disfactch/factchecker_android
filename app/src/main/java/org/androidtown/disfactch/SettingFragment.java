@@ -76,6 +76,8 @@ public class SettingFragment extends Fragment {
                 web = new BrowseFragment();//프래그먼트2 선언
                 web.setArguments(bundle);//번들을 프래그먼트2로 보낼 준비
                 transaction.replace(R.id.main_frame, web);
+                // 뒤로 가기 누르면 전 화면으로 돌려줌.
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });
