@@ -18,6 +18,7 @@ import com.kakao.sdk.link.model.LinkResult;
 import com.kakao.sdk.template.model.Content;
 import com.kakao.sdk.template.model.FeedTemplate;
 import com.kakao.sdk.template.model.Link;
+import com.kakao.sdk.template.model.TextTemplate;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.Account;
 
@@ -57,12 +58,16 @@ public class LinkFragment extends Fragment {
 
                     /**
                      * new Link() : 파라미터 순서대로 webLink, mobileLink, androidLink, iosLink
+                     * https://www.beemo.co.kr/entry/카카오-sdk-v2-굳이-자바로-사용하기-2-카카오-링크-메시지?category=743783
                      */
                     FeedTemplate feedTemplate = new FeedTemplate(new Content("title","imageUrl",    //메시지 제목, 이미지 url
                             new Link("https://www.naver.com"),"description",                    //메시지 링크, 메시지 설명
                             300,300));                                                     //이미지 사이즈
 
-                    LinkClient.getInstance().defaultTemplate(view.getContext(), feedTemplate,null,new Function2<LinkResult, Throwable,Unit>() {
+                TextTemplate textTemplate = new TextTemplate("네이버 링크로 가요 ~" ,new Link( "https://naver.com"));
+
+                // line 70dml textTemplate을 feedTemplate으로 바꾸면 feed 형식으로 전송 될 것으로 보임.
+                LinkClient.getInstance().defaultTemplate(view.getContext(), textTemplate,null,new Function2<LinkResult, Throwable,Unit>() {
                         @Override
                         public Unit invoke(LinkResult linkResult, Throwable throwable) {
                             if (throwable != null) {
