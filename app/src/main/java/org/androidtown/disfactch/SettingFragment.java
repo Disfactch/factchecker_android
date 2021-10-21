@@ -22,8 +22,6 @@ public class SettingFragment extends Fragment {
     Button btnSecond;
     BrowseFragment web;
 
-    View view = null;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,6 +58,7 @@ public class SettingFragment extends Fragment {
         });
 
         Switch swDark = (Switch) layout.findViewById(R.id.sw);
+        swDark.setChecked(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES);
 
         //TODO: 여기서 onConfigurationChanged 메서드 사용해야함
         swDark.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -77,9 +76,8 @@ public class SettingFragment extends Fragment {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        LayoutInflater inflater2 = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        view = inflater2.inflate(R.layout.fragment_setting, null);
-
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflater.inflate(R.layout.fragment_setting, null);
     }
 
 }
