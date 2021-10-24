@@ -1,6 +1,9 @@
 package org.androidtown.disfactch;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -17,7 +21,19 @@ import com.kakao.sdk.link.LinkClient;
 import com.kakao.sdk.template.model.Link;
 import com.kakao.sdk.template.model.TextTemplate;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Locale;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class FactCheckingFragment extends Fragment implements CircleProgressBar.ProgressFormatter {
 
@@ -38,11 +54,12 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     Button btnKakaoMsg;
     String url;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        //https://lcw126.tistory.com/284
+
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
         cbProv = v.findViewById(R.id.cb_provocative);
         cbProv.setProgress(70);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
@@ -67,11 +84,65 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         Button rlBtn = (Button)v.findViewById(R.id.rl_search_btn);
         Button rlReadBtn = (Button)v.findViewById(R.id.rl_search_read_btn);
 
-        rlBtn.setOnClickListener(view -> {
-            url = link.getText().toString();
+        rlBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                // creating a client
+                OkHttpClient okHttpClient = new OkHttpClient();
 
-            progress.setVisibility(View.VISIBLE);
+                // link를 base64 인코딩하여 전달
+                String linkForParameter = Base64.getEncoder().encodeToString(link.toString().getBytes(StandardCharsets.UTF_8));
+                Log.d("TEST", "linkForParameter: "+linkForParameter);
+                // building a request
+                Request request = new Request.Builder().url("http://110.76.73.55:8080/factchecker/factchecked/rest/"+linkForParameter).build();
+
+                // making call asynchronously
+                okHttpClient.newCall(request).enqueue(new Callback() {
+                    @Override
+                    // called if server is unreachable
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+                    }
+
+                    @Override
+                    // called if we get a
+                    // response from the server
+                    public void onResponse(
+                            @NotNull Call call,
+                            @NotNull Response response)
+                            throws IOException {
+
+                        String bodyString = response.body().string();
+                        Log.d("TEST", bodyString);
+                        JSONObject jsonObject;
+                        try {
+                            jsonObject = new JSONObject(bodyString);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            jsonObject = new JSONObject();
+                        }
+
+                        Log.d("TEST", "jsonObject: "+jsonObject.toString());
+
+                        int re1 = jsonObject.optInt("reliability_1", 0);
+                        int re2 = jsonObject.optInt("reliability_2", 0);
+                        int re3 = jsonObject.optInt("reliability_3", 0);
+                        int re4 = jsonObject.optInt("reliability_final", 0);
+                        Log.d("TEST", "values: "+re1+", "+re2+", "+re3+", "+re4);
+
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            cbProv.setProgress(re1);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
+                            cbPub.setProgress(re2);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
+                            cbSa.setProgress(re3);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
+                            cbFi.setProgress(re4);
+                            progress.setVisibility(View.VISIBLE);
+                        });
+                    }
+                });
+            }
         });
+
 
 
         rlReadBtn.setOnClickListener(view -> {
@@ -89,8 +160,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
             }
         });
 
-        //TODO: 위에서 작성한 link가 string 형식으로 넘어오질 않음
-
         btnKakaoMsg = (Button)v.findViewById(R.id.btn_link);
         btnKakaoMsg.setOnClickListener(view -> {
 
@@ -98,15 +167,11 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
              * new Link() : 파라미터 순서대로 webLink, mobileLink, androidLink, iosLink
              * https://www.beemo.co.kr/entry/카카오-sdk-v2-굳이-자바로-사용하기-2-카카오-링크-메시지?category=743783
              */
-           // FeedTemplate feedTemplate = new FeedTemplate(new Content("title","imageUrl",    //메시지 제목, 이미지 url
-                    //new Link("https://www.naver.com"),"description",                    //메시지 링크, 메시지 설명
-                   // 300,300));                                                     //이미지 사이즈
-            //url = "\""+url+"\"";
 
             /**
              * 연합 , 네이버, 다음, 중앙, 동아, 경향, 국민, 뉴스1, 뉴시스, 문화 이렇게 10개 회사만 가능.
              */
-            //url 넘겨 받는거 : 검색 버튼 눌러야지만 공유 가능.
+
             TextTemplate textTemplate = new TextTemplate("기사를 확인해보세요 !~", new Link(url, url));
             LinkClient.getInstance().defaultTemplate(view.getContext(), textTemplate,null, (linkResult, throwable) -> {
                 if (throwable != null) {
