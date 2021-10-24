@@ -16,11 +16,14 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
+
 import org.androidtown.disfactch.BrowseFragment;
 
 public class SettingFragment extends Fragment {
 
     Button btnGithub;
+    Button btnOpenSource;
     BrowseFragment web;
 
     @Override
@@ -29,6 +32,7 @@ public class SettingFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_setting, container, false);
 
         btnGithub = (Button) layout.findViewById(R.id.btn_github);
+        btnOpenSource = (Button) layout.findViewById(R.id.btn_opensource);
 
         //btn_github: disfactch github를 webview 방식으로 앱 내에서 보여줌
         btnGithub.setOnClickListener(v-> {
@@ -43,6 +47,11 @@ public class SettingFragment extends Fragment {
                     transaction.addToBackStack(null);
                     transaction.commit();
                 }
+        });
+
+        btnOpenSource.setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), OssLicensesMenuActivity.class));
+
         });
 
         Switch swDark = (Switch) layout.findViewById(R.id.sw);

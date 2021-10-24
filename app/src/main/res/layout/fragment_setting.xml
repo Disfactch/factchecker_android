@@ -26,6 +26,13 @@
             android:text="@string/btn_git"
             app:backgroundTint="@color/main_blue" />
 
+        <Button
+            android:id="@+id/btn_opensource"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_opensource"
+            app:backgroundTint="@color/main_blue" />
+
         <Switch
             android:id="@+id/sw"
             android:text="dark mode on"
