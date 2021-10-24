@@ -50,12 +50,8 @@ public class LinkFragment extends Fragment {
                     @NotNull Call call,
                     @NotNull Response response)
                     throws IOException {
-
-                Log.d("TEST", response.body().string());
-                //pagenameTextView.setText(response.body().string());
             }
         });
-
 
         return layout;
     }
