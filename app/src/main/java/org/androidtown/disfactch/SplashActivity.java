@@ -1,3 +1,8 @@
+/**
+ * SPDX-FileCopyrightText: © 2021 Subin Kim <subinga18@naver.com>
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 package org.androidtown.disfactch;
 
 import android.content.Intent;
