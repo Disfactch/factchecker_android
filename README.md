@@ -86,9 +86,9 @@ Settings 페이지에서 Github 바로가기 버튼을 누르면 Disfactch Organ
     limitations under the License.
 
 ### Google Play Service ( https://developers.google.com/android/guides/overview )
-Google Play Services is provided by Google Inc.
-Google Play Services follows Android Software Development Kit License. 
-For more information, please refer to https://developer.android.com/studio/terms.html.
+    Google Play Services is provided by Google Inc.
+    Google Play Services follows Android Software Development Kit License. 
+    For more information, please refer to https://developer.android.com/studio/terms.html.
 
 ### 정보의 도서관 ( https://lcw126.tistory.com/284 )
 
