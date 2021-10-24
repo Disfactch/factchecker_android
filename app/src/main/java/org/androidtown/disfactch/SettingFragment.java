@@ -1,15 +1,20 @@
+/**
+ * SPDX-FileCopyrightText: © 2021 Subin Kim <subinga18@naver.com>
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
 package org.androidtown.disfactch;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
+
 import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -18,7 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
-import org.androidtown.disfactch.BrowseFragment;
+
 
 public class SettingFragment extends Fragment {
 
@@ -64,7 +69,6 @@ public class SettingFragment extends Fragment {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
-
         return layout;
     }
 
