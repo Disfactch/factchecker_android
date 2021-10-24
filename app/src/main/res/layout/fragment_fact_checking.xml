@@ -64,13 +64,11 @@
 
     </RelativeLayout>
 
-    <!-- TODO : -->
     <RelativeLayout
         android:id="@+id/rl_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp">
-
 
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_provocative"

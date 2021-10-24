@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".SettingFragment">
 
-    <!-- TODO : fragment 내용물 채우기 ex. darkmode 설정 등등 -->
     <LinearLayout android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

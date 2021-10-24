@@ -28,9 +28,6 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e(TAG, "로그인 실패", error);
                 Toast.makeText(LoginActivity.this, "로그인이 실패하였습니다.", Toast.LENGTH_SHORT).show();
 
-                //로그인 실패 하더라도 넘어가게는 해놨음 > just 확인용
-                //Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                //startActivity(intent);
             } else if (oAuthToken != null) {
                 Log.i(TAG, "로그인 성공(토큰) : " + oAuthToken.getAccessToken());
 

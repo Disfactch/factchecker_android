@@ -59,7 +59,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
         cbProv = v.findViewById(R.id.cb_provocative);
         cbProv.setProgress(70);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
@@ -80,7 +79,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
 
         link = v.findViewById(R.id.rl_search_edit);
 
-
         Button rlBtn = (Button)v.findViewById(R.id.rl_search_btn);
         Button rlReadBtn = (Button)v.findViewById(R.id.rl_search_read_btn);
 
@@ -93,7 +91,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
 
                 // link를 base64 인코딩하여 전달
                 String linkForParameter = Base64.getEncoder().encodeToString(link.toString().getBytes(StandardCharsets.UTF_8));
-                Log.d("TEST", "linkForParameter: "+linkForParameter);
                 // building a request
                 Request request = new Request.Builder().url("http://110.76.73.55:8080/factchecker/factchecked/rest/"+linkForParameter).build();
 
@@ -114,7 +111,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                             throws IOException {
 
                         String bodyString = response.body().string();
-                        Log.d("TEST", bodyString);
                         JSONObject jsonObject;
                         try {
                             jsonObject = new JSONObject(bodyString);
@@ -123,13 +119,10 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                             jsonObject = new JSONObject();
                         }
 
-                        Log.d("TEST", "jsonObject: "+jsonObject.toString());
-
                         int re1 = jsonObject.optInt("reliability_1", 0);
                         int re2 = jsonObject.optInt("reliability_2", 0);
                         int re3 = jsonObject.optInt("reliability_3", 0);
                         int re4 = jsonObject.optInt("reliability_final", 0);
-                        Log.d("TEST", "values: "+re1+", "+re2+", "+re3+", "+re4);
 
                         new Handler(Looper.getMainLooper()).post(() -> {
                             cbProv.setProgress(re1);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
@@ -164,11 +157,6 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
         btnKakaoMsg.setOnClickListener(view -> {
 
             /**
-             * new Link() : 파라미터 순서대로 webLink, mobileLink, androidLink, iosLink
-             * https://www.beemo.co.kr/entry/카카오-sdk-v2-굳이-자바로-사용하기-2-카카오-링크-메시지?category=743783
-             */
-
-            /**
              * 연합 , 네이버, 다음, 중앙, 동아, 경향, 국민, 뉴스1, 뉴시스, 문화 이렇게 10개 회사만 가능.
              */
 
@@ -194,5 +182,4 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
     public CharSequence format(int progress, int max) {
         return String.format(Locale.getDefault(), DEFAULT_PATTERN, (int) ((float) progress / (float) max * 100));
     }
-
 }
