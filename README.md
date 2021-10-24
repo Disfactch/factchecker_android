@@ -5,7 +5,7 @@
 
 <h1 align="center">Team Disfactch : Fake news detector</h1>
 <p align="center">
-    <a href="http://www.apache.org/licenses/LICENSE-2.0"><img alt="License" src="https://img.shields.io/github/license/Disfactch/factchecker_android"></a>
+     <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/license-BSD-green"></a>
     <a href="https://github.com/Disfactch/factchecker_android"><img alt="Github Stars" src="https://img.shields.io/github/stars/Disfactch/factchecker_android?style=social"></a>
 </p>
 
