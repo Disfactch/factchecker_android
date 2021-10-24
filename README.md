@@ -38,8 +38,6 @@ Settings 페이지에서 Github 바로가기 버튼을 누르면 Disfactch Organ
 
    Copyright 2021 Team Disfactch - Byeongho Hwang, Subin Kim, Yunji Lee, Hanna Jeon
 
-
-## Third-Party License
 ### Android & AndroidX Library (https://android.googlesource.com/platform/external/okhttp/)
 
     Copyright 2018 The Android Open Source Project
