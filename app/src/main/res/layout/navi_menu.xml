@@ -7,11 +7,6 @@
             android:title="Fact checking "
             />
         <item
-            android:id="@+id/link"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:title="Links"
-            />
-        <item
             android:id="@+id/setting"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="Setting"
