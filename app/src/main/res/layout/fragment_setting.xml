@@ -20,20 +20,11 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-
-        <!-- TODO : 버튼 이름 변경 필요 > settingFragment.java도 변경 -->
         <Button
             android:id="@+id/btn_github"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/btn_git"
-            app:backgroundTint="@color/main_blue" />
-
-        <Button
-            android:id="@+id/button_2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/button_2"
             app:backgroundTint="@color/main_blue" />
 
         <Switch

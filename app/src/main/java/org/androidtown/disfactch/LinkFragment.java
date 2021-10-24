@@ -1,6 +1,7 @@
 package org.androidtown.disfactch;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,9 +51,8 @@ public class LinkFragment extends Fragment {
                     @NotNull Response response)
                     throws IOException {
 
-                if (response.body() != null) {
-                    System.out.println(response.body().string());
-                }
+                Log.d("TEST", response.body().string());
+                //pagenameTextView.setText(response.body().string());
             }
         });
 
