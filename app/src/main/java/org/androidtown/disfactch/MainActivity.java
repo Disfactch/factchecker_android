@@ -53,11 +53,6 @@ public class MainActivity extends AppCompatActivity {
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         return true;
 
-                    case R.id.link:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new LinkFragment()).commit();
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        return true;
-
                     case R.id.setting:
                         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,new SettingFragment()).commit();
                         mDrawerLayout.closeDrawer(GravityCompat.START);
