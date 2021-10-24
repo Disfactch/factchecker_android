@@ -1,12 +1,23 @@
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/38221941/131619091-4c427677-e561-4fad-b95d-c156cf67e1b5.png" width="300px">
+    <a href="https://github.com/"><img alt="" src=""></a>
+</p>
+
+<h1 align="center">Team Disfactch : Fake news detector</h1>
+<p align="center">
+    <a href="http://www.apache.org/licenses/LICENSE-2.0"><img alt="License" src="https://img.shields.io/github/license/Disfactch/factchecker_android"></a>
+    <a href="https://github.com/Disfactch/factchecker_android"><img alt="Github Stars" src="https://img.shields.io/github/stars/Disfactch/factchecker_android?style=social"></a>
+</p>
+
 # factchecker_android
 
 ## 어플리케이션 제작 이유
-------------
+
 이 어플리케이션은 공개 SW 개발자 대회에 출품한 가짜뉴스 탐지 시스템 Factchecker의 기능을 보다 편리하게 사용하기 위해 만들어졌습니다. 
 
 
 ## 어플리케이션 주요 기능
-------------
+
 ### 1. 카카오 계정 연동 기능
 첫 화면에서 카카오 계정과 연동하여 로그인 할 수 있는 버튼이 존재합니다. 카카오 계정과 연동을 하여 서비스를 이용한다면 더 많은 기능을 사용하실 수 있습니다.(아래 참고) 만약 연동을 원하지 않는다면 비회원으로 서비스를 이용할 수 있습니다.
 
