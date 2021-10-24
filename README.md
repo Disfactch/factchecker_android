@@ -73,5 +73,3 @@ Settings 페이지에서 Github 바로가기 버튼을 누르면 Disfactch Organ
     limitations under the License.
 
 ### 정보의 도서관 ( https://lcw126.tistory.com/284 )
-    Used for CircleProgressBar
-   
