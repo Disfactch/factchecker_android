@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -66,16 +67,12 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
 
         ViewGroup v = (ViewGroup)inflater.inflate(R.layout.fragment_fact_checking, container, false);
         cbProv = v.findViewById(R.id.cb_provocative);
-        cbProv.setProgress(70);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
 
         cbPub = v.findViewById(R.id.cb_publicity);
-        cbPub.setProgress(30);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
 
         cbSa = v.findViewById(R.id.cb_same);
-        cbSa.setProgress(88);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
 
         cbFi = v.findViewById(R.id.cb_final);
-        cbFi.setProgress(100);  // 해당 퍼센트를 적용_ 나중엔 결과값으로 넣을 것
 
         // progress bar를 invisible 하게 두다가 링크 넣고 버튼 누르면 보여주기.
 
@@ -92,19 +89,26 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
             @Override
             public void onClick(View view) {
                 // creating a client
-                OkHttpClient okHttpClient = new OkHttpClient();
+                //OkHttpClient okHttpClient = new OkHttpClient();
+                url = link.getText().toString();
+                OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                        .connectTimeout(30, TimeUnit.SECONDS)
+                        .writeTimeout(30, TimeUnit.SECONDS)
+                        .readTimeout(30, TimeUnit.SECONDS)
+                        .build();
 
                 // link를 base64 인코딩하여 전달
-                String linkForParameter = Base64.getEncoder().encodeToString(link.toString().getBytes(StandardCharsets.UTF_8));
+                String linkForParameter = Base64.getEncoder().encodeToString(link.getText().toString().getBytes(StandardCharsets.UTF_8));
                 // building a request
                 Request request = new Request.Builder().url("http://110.76.73.55:8080/factchecker/factchecked/rest/"+linkForParameter).build();
 
+                System.out.println("req"+request);
                 // making call asynchronously
                 okHttpClient.newCall(request).enqueue(new Callback() {
                     @Override
                     // called if server is unreachable
                     public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
+                        System.out.println("f");
                     }
 
                     @Override
@@ -116,6 +120,7 @@ public class FactCheckingFragment extends Fragment implements CircleProgressBar.
                             throws IOException {
 
                         String bodyString = response.body().string();
+                        System.out.println("body"+bodyString);
                         JSONObject jsonObject;
                         try {
                             jsonObject = new JSONObject(bodyString);
