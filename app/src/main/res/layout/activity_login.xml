@@ -21,28 +21,30 @@
         app:layout_constraintVertical_bias="0.474" />
 
     <!-- 카카오톡 로그인 버튼 -->
+
     <ImageButton
         android:id="@+id/btn_login"
-        android:layout_width="139dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/road_splash"
         app:srcCompat="@drawable/login_btn" />
 
     <Button
         android:id="@+id/btn_start"
-        android:layout_width="221dp"
-        android:layout_height="46dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="95dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="95dp"
         android:text="로그인 없이 시작하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/road_splash" />
+        app:layout_constraintTop_toBottomOf="@+id/road_splash"
+        app:layout_constraintVertical_bias="0.28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
