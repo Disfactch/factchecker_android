@@ -10,9 +10,10 @@
 
 
     <RelativeLayout
-        android:id="@+id/rl_fc"
+        android:id="@+id/rl_search"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -22,45 +23,50 @@
             android:textSize="20sp"
             android:id="@+id/rl_fc_txt" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp">
-
         <TextView
             android:id="@+id/rl_search_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Search"
             android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginTop="30sp"/>
 
         <EditText
             android:id="@+id/rl_search_edit"
             android:maxLines="1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30sp"
+            android:layout_marginTop="60sp"
             android:hint="링크를 입력하세요"/>
 
         <Button
             android:id="@+id/rl_search_btn"
             android:text="검색"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="260dp" />
+            android:layout_height="30dp"
+            android:layout_marginLeft="260dp"
+            android:textSize="10sp"/>
 
         <Button
             android:id="@+id/rl_search_read_btn"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_alignBottom="@+id/rl_search_btn"
             android:layout_marginLeft="260dp"
             android:layout_marginBottom="-35dp"
-            android:text="보기" />
+            android:text="보기"
+            android:textSize="10sp"/>
+
+        <Button
+            android:id="@+id/btn_link"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/rl_search_read_btn"
+            android:layout_marginLeft="260dp"
+            android:layout_marginBottom="-33dp"
+            android:text="공유"
+            android:textSize="10sp"/>
 
     </RelativeLayout>
 
@@ -68,12 +74,22 @@
         android:id="@+id/rl_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp">
+        android:layout_marginTop="200dp">
+
+        <TextView
+            android:id="@+id/txt_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="기사 제목 자극성"
+            android:textSize="10sp" />
 
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_provocative"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_below="@+id/txt_pro"
+            android:layout_marginTop="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -85,11 +101,22 @@
             app:progress_text_size="20sp"
             app:style="solid_line" />
 
+        <TextView
+            android:id="@+id/txt_pub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txt_pro"
+            android:layout_marginLeft="135dp"
+            android:text="홍보 기사 가능성 "
+            android:textSize="10sp" />
+
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_publicity"
+            android:layout_alignLeft="@id/cb_provocative"
+            android:layout_below="@+id/txt_pub"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignLeft="@+id/cb_provocative"
+            android:layout_marginTop="20sp"
             android:layout_marginLeft="130dp"
             app:progress_start_color="#FF1500"
             app:progress_end_color="#1AFA02"
@@ -98,11 +125,21 @@
             app:progress_text_size="20sp"
             app:style="solid_line" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동일 기사 반복성 "
+            android:textSize="10sp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txt_same"
+            android:layout_marginTop="20sp"
+            android:layout_below="@+id/cb_provocative"/>
+
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_same"
+            android:layout_below="@+id/cb_provocative"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_below="@+id/cb_provocative"
             android:layout_marginTop="50dp"
             app:progress_start_color="#FF1500"
             app:progress_end_color="#1AFA02"
@@ -111,12 +148,23 @@
             app:progress_text_size="20sp"
             app:style="solid_line" />
 
+        <TextView
+            android:id="@+id/txt_fi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cb_publicity"
+            android:layout_alignLeft="@+id/txt_same"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="20sp"
+            android:text="최종 기사 신뢰도"
+            android:textSize="10sp" />
+
         <com.dinuscxj.progressbar.CircleProgressBar
             android:id="@+id/cb_final"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:layout_alignLeft="@+id/cb_same"
             android:layout_below="@+id/cb_publicity"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginLeft="132dp"
             android:layout_marginTop="50dp"
             app:progress_start_color="#FF1500"
@@ -127,13 +175,5 @@
             app:style="solid_line" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/btn_link"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginLeft="260dp"
-        android:layout_marginBottom="-35dp"
-        android:text="링크" />
 
 </FrameLayout>
